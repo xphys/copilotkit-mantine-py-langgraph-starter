@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"pnpm run dev:ui\" \"pnpm run dev:agent\" --names ui,agent --prefix-colors blue,green --kill-others",
+    "dev": "concurrently \"pnpm run dev:ui\" \"pnpm run dev:agent\" \"pnpm run dev:api\" --names ui,agent,api --prefix-colors blue,green,yellow --kill-others",
     "dev:debug": "LOG_LEVEL=debug pnpm run dev",
     "dev:agent": "cd backend && uv run python -m langgraph_cli dev --port 8123 --no-browser",
-    "dev:api": "cd backend && uv run python -m uvicorn api.main:app --reload --port 8000 --loop uvloop",
+    "dev:api": "cd backend && uv run python -m uvicorn api.main:app --reload --port 8000",
     "dev:ui": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
